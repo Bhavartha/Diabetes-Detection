@@ -15,7 +15,6 @@
                <q-input
                   outlined
                   label="Age"
-                  mask="###"
                   class="q-pt-sm"
                   v-model="payload.Age"
                />
@@ -429,7 +428,7 @@
          </q-stepper>
       </div>
       <q-dialog v-model="response_available" persistent>
-         <probability-dialog @close="reset" :data="response" />
+         <probability-dialog @close="reset" :data="response" :advanced="false"/>
       </q-dialog>
    </q-page>
 </template>
@@ -505,5 +504,8 @@ export default {
 <style scoped>
 #questions {
    max-width: 600px;
+}
+p{
+   font-size:15px;
 }
 </style>

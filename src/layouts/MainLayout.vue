@@ -53,12 +53,17 @@ const menuList = [
       link: "/",
    },
    {
-      icon: "help",
-      label: "Questions",
+      icon: "question_answer",
+      label: "Basic Test",
       link: "/questions",
    },
    {
-      icon: "help",
+      icon: "question_answer",
+      label: "Advanced Test",
+      link: "/advancedTest",
+   },
+   {
+      icon: "info",
       label: "Diet",
       link: "/diet",
    },
