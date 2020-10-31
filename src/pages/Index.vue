@@ -1,13 +1,14 @@
 <template>
    <q-page class="flex justify-center">
-      <div id="jumbo" class="q-pa-lg">
-         <h2>Are you diabetic ?</h2>
-         <p>Find out how likely are you to have diabetes using our test</p>
+      <div id="jumbo" class="q-pa-lg text-center">
+         <h2>Are you Diabetic ?</h2>
+         <h5>Find out how likely are you to have diabetes using our test</h5>
          <q-btn
             :ripple="{ center: true }"
-            color="primary q-mt-md"
+            color="primary"
+            style="width: 150px"
             label="Take Test"
-            @click="$router.push({ path: '/questions' })"
+            @click="$router.replace({ path: '/questions' })"
             no-caps
          />
       </div>
