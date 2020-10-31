@@ -1,7 +1,9 @@
 <template>
    <q-page>
       <div id="questions" class="q-ma-md q-mx-auto">
-         <h5 class="q-mx-md text-center">Please answer the following Questions</h5>
+         <h5 class="q-mx-md text-center">
+            Please answer the following Questions
+         </h5>
          <q-stepper v-model="step" vertical color="primary" animated header-nav>
             <!-- Question 1 -->
             <q-step
@@ -411,14 +413,19 @@
                   ]"
                />
                <q-stepper-navigation>
-                  <q-btn @click="submit" color="primary" label="Submit" />
-                  <!-- <q-btn
-                     flat
-                     @click="step = 15"
+                  <q-btn
+                     @click="simulateProgress"
                      color="primary"
-                     label="Back"
-                     class="q-ml-sm"
-                  /> -->
+                     label="Submit"
+                     :loading="loading"
+                     :percentage="percentage"
+                     style="width: 150px"
+                  >
+                     <template v-slot:loading>
+                        <q-spinner-gears class="on-left" />
+                        Calculating...
+                     </template>
+                  </q-btn>
                </q-stepper-navigation>
             </q-step>
          </q-stepper>
@@ -431,6 +438,8 @@ export default {
    data() {
       return {
          step: 1,
+         loading: false,
+         percentage: 0,
          payload: {
             Age: null,
             Gender: null,
@@ -452,13 +461,41 @@ export default {
       };
    },
    methods: {
+      alert(data) {
+         const k = Object.keys(data)[0];
+         this.$q
+            .dialog({
+               title:
+                  k == "error"
+                     ? "Error: " + data[k]
+                     : "Probability of having diabetes: " + data[k] + "%",
+            })
+            .onOk(() => {
+               this.$router.go(0);
+            });
+      },
+      simulateProgress() {
+         this.loading = true;
+         this.percentage = 0;
+         this.interval = setInterval(() => {
+            this.percentage += Math.floor(Math.random() * 8 + 10);
+            if (this.percentage >= 100) {
+               clearInterval(this.interval);
+               this.loading = false;
+               this.submit();
+            }
+         }, 300);
+      },
       async submit() {
-        //  console.log(this.payload);
-         const res = await this.$axios.post(
-            "https://vdiabetes.pythonanywhere.com/detect",
-            this.payload
-         );
-         console.log(res.data);
+         try {
+            const res = await this.$axios.post(
+               "https://vdiabetes.pythonanywhere.com/detect",
+               this.payload
+            );
+            this.alert(res.data);
+         } catch {
+            alert("Error");
+         }
       },
    },
 };
