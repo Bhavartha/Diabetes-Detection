@@ -57,6 +57,11 @@ const menuList = [
       label: "Questions",
       link: "/questions",
    },
+   {
+      icon: "help",
+      label: "Diet",
+      link: "/diet",
+   },
 ];
 
 export default {
