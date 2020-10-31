@@ -1,6 +1,6 @@
 <template>
    <q-page class="flex justify-center">
-      <div id="jumbo">
+      <div id="jumbo" class="q-pa-lg">
          <h2>Are you diabetic ?</h2>
          <p>Find out how likely are you to have diabetes using our test</p>
          <q-btn
