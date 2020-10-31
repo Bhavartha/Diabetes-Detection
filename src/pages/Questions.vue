@@ -1,7 +1,7 @@
 <template>
    <q-page>
       <div id="questions" class="q-ma-md q-mx-auto">
-         <h5>Please answer the following questions</h5>
+         <h5 class="q-mx-md text-center">Please answer the following Questions</h5>
          <q-stepper v-model="step" vertical color="primary" animated header-nav>
             <!-- Question 1 -->
             <q-step
@@ -9,8 +9,7 @@
                title="What is your age?"
                icon="help_outline"
                done-color="positive"
-               
-               :done="payload.Age != null && step > 1"
+               :done="payload.Age != null"
             >
                <p>Please specify your age (eg:25)</p>
                <q-input
@@ -31,7 +30,7 @@
                title="What is your Gender?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 2 && payload.Gender != null"
+               :done="payload.Gender != null"
             >
                <q-btn-toggle
                   v-model="payload.Gender"
@@ -46,16 +45,16 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 3" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
+
             <!-- Question 3 -->
             <q-step
                :name="3"
                title="Do you have symptoms of Polyuria?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 3 && payload.Polyuria != null"
+               :done="payload.Polyuria != null"
             >
                <p>
                   Polyuria is a condition where the body urinates more than
@@ -75,7 +74,6 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 4" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
             <!-- Question 4 -->
@@ -84,7 +82,7 @@
                title="Do you have symptoms of Polydipsia?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 4 && payload.Polydipsia != null"
+               :done="payload.Polydipsia != null"
             >
                <p>
                   Polydipsia is a condition marked by excessive thirst that
@@ -103,16 +101,16 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 5" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
+
             <!-- Question 5 -->
             <q-step
                :name="5"
                title="Do you suffer from sudden weight loss?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 5 && payload.SuddenWeightLoss != null"
+               :done="payload.SuddenWeightLoss != null"
             >
                <q-btn-toggle
                   v-model="payload.SuddenWeightLoss"
@@ -127,16 +125,16 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 6" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
+
             <!-- Question 6 -->
             <q-step
                :name="6"
                title="Do you have weakness?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 6 && payload.Weakness != null"
+               :done="payload.Weakness != null"
             >
                <q-btn-toggle
                   v-model="payload.Weakness"
@@ -151,16 +149,16 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 7" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
+
             <!-- Question 7 -->
             <q-step
                :name="7"
                title="Do you suffer from Polyphagia?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 7 && payload.Polyphagia != null"
+               :done="payload.Polyphagia != null"
             >
                <p>
                   Polyphagia, also known as hyperphagia, is the medical term for
@@ -182,16 +180,16 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 8" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
+
             <!-- Question 8 -->
             <q-step
                :name="8"
                title="Do you suffer from Genital thrush?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 8 && payload.GenitalThrush != null"
+               :done="payload.GenitalThrush != null"
             >
                <p>
                   Thrush is a type of yeast infection, caused by Candida
@@ -211,7 +209,6 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 9" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
 
@@ -221,9 +218,8 @@
                title="Do you suffer from Visual Blurring?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 9 && payload.VisualBlurring != null"
+               :done="payload.VisualBlurring != null"
             >
-            
                <q-btn-toggle
                   v-model="payload.VisualBlurring"
                   no-caps
@@ -237,7 +233,6 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 10" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
 
@@ -247,9 +242,8 @@
                title="Do you suffer from Itching?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 10 && payload.Itching != null"
+               :done="payload.Itching != null"
             >
-            
                <q-btn-toggle
                   v-model="payload.Itching"
                   no-caps
@@ -263,7 +257,6 @@
                />
                <q-stepper-navigation>
                   <q-btn @click="step = 11" color="primary" label="Continue" />
-                  
                </q-stepper-navigation>
             </q-step>
 
@@ -273,9 +266,8 @@
                title="Do you suffer from Irritability?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 11 && payload.Irritability != null"
+               :done="payload.Irritability != null"
             >
-               <!-- <P></P> -->
                <q-btn-toggle
                   v-model="payload.Irritability"
                   no-caps
@@ -298,9 +290,8 @@
                title="Do you suffer from Delayed Healing?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 12 && payload.DelayedHealing != null"
+               :done="payload.DelayedHealing != null"
             >
-               <p></P>
                <q-btn-toggle
                   v-model="payload.DelayedHealing"
                   no-caps
@@ -323,9 +314,9 @@
                title="Do you suffer from Partial Paresis?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 13 && payload.PartialParesis != null"
+               :done="payload.PartialParesis != null"
             >
-               <P>Partial paralysis</P>
+               <p>Partial paralysis condition</p>
                <q-btn-toggle
                   v-model="payload.PartialParesis"
                   no-caps
@@ -348,9 +339,14 @@
                title="Do you suffer from Muscle Stiffness?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 14 && payload.MuscleStiffness != null"
+               :done="payload.MuscleStiffness != null"
             >
-               <P>Muscle stiffness is when your muscles feel tight and you find it more difficult to move than you usually do, especially after rest. You may also have muscle pains, cramping, and discomfort</P>
+               <p>
+                  Muscle stiffness is when your muscles feel tight and you find
+                  it more difficult to move than you usually do, especially
+                  after rest. You may also have muscle pains, cramping, and
+                  discomfort
+               </p>
                <q-btn-toggle
                   v-model="payload.MuscleStiffness"
                   no-caps
@@ -373,9 +369,12 @@
                title="Do you suffer from Alopecia?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 15 && payload.Alopecia != null"
+               :done="payload.Alopecia != null"
             >
-               <P>Partial or complete absence of hair from areas of the body where it normally grows</P>
+               <p>
+                  Partial or complete absence of hair from areas of the body
+                  where it normally grows
+               </p>
                <q-btn-toggle
                   v-model="payload.Alopecia"
                   no-caps
@@ -398,9 +397,8 @@
                title="Do you suffer from Obesity?"
                icon="help_outline"
                done-color="positive"
-               :done="step > 16 && payload.Obesity != null"
+               :done="payload.Obesity != null"
             >
-               <!-- <P>Partial or complete absence of hair from areas of the body where it normally grows</P> -->
                <q-btn-toggle
                   v-model="payload.Obesity"
                   no-caps
@@ -413,7 +411,7 @@
                   ]"
                />
                <q-stepper-navigation>
-                  <q-btn @click="step = 16" color="primary" label="Continue" />
+                  <q-btn @click="submit" color="primary" label="Submit" />
                   <!-- <q-btn
                      flat
                      @click="step = 15"
@@ -423,7 +421,6 @@
                   /> -->
                </q-stepper-navigation>
             </q-step>
-
          </q-stepper>
       </div>
    </q-page>
@@ -453,6 +450,16 @@ export default {
             Obesity: null,
          },
       };
+   },
+   methods: {
+      async submit() {
+        //  console.log(this.payload);
+         const res = await this.$axios.post(
+            "https://vdiabetes.pythonanywhere.com/detect",
+            this.payload
+         );
+         console.log(res.data);
+      },
    },
 };
 </script>
