@@ -1,9 +1,7 @@
 <template>
    <q-page>
       <div id="questions" class="q-ma-md q-mx-auto">
-         <h5 class="q-mx-md text-center">
-            Please answer the following Questions
-         </h5>
+         <h5 class="text-center">Please answer the following Questions</h5>
          <q-stepper v-model="step" vertical color="primary" animated header-nav>
             <!-- Question 1 -->
             <q-step
@@ -430,49 +428,51 @@
             </q-step>
          </q-stepper>
       </div>
+      <q-dialog v-model="response_available" persistent>
+         <probability-dialog @close="reset" :data="response" />
+      </q-dialog>
    </q-page>
 </template>
 
 <script>
+function initialState() {
+   return {
+      step: 1,
+      loading: false,
+      percentage: 0,
+      response: null,
+      response_available: false,
+      payload: {
+         Age: null,
+         Gender: null,
+         Polyuria: null,
+         Polydipsia: null,
+         SuddenWeightLoss: null,
+         Weakness: null,
+         Polyphagia: null,
+         GenitalThrush: null,
+         VisualBlurring: null,
+         Itching: null,
+         Irritability: null,
+         DelayedHealing: null,
+         PartialParesis: null,
+         MuscleStiffness: null,
+         Alopecia: null,
+         Obesity: null,
+      },
+   };
+}
+
 export default {
+   components: {
+      "probability-dialog": require("components/ProbabilityDialog").default,
+   },
    data() {
-      return {
-         step: 1,
-         loading: false,
-         percentage: 0,
-         payload: {
-            Age: null,
-            Gender: null,
-            Polyuria: null,
-            Polydipsia: null,
-            SuddenWeightLoss: null,
-            Weakness: null,
-            Polyphagia: null,
-            GenitalThrush: null,
-            VisualBlurring: null,
-            Itching: null,
-            Irritability: null,
-            DelayedHealing: null,
-            PartialParesis: null,
-            MuscleStiffness: null,
-            Alopecia: null,
-            Obesity: null,
-         },
-      };
+      return initialState();
    },
    methods: {
-      alert(data) {
-         const k = Object.keys(data)[0];
-         this.$q
-            .dialog({
-               title:
-                  k == "error"
-                     ? "Error: " + data[k]
-                     : "Probability of having diabetes: " + data[k] + "%",
-            })
-            .onOk(() => {
-               this.$router.go(0);
-            });
+      reset() {
+         Object.assign(this.$data, initialState());
       },
       simulateProgress() {
          this.loading = true;
@@ -492,7 +492,8 @@ export default {
                "https://vdiabetes.pythonanywhere.com/detect",
                this.payload
             );
-            this.alert(res.data);
+            this.response = res.data;
+            this.response_available = true;
          } catch {
             alert("Error");
          }
