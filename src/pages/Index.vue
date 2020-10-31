@@ -1,14 +1,24 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
-  </q-page>
+   <q-page class="flex justify-center">
+      <div id="jumbo">
+         <h2>Are you diabetic ?</h2>
+         <p>Find out how likely are you to have diabetes using our test</p>
+         <q-btn
+            :ripple="{ center: true }"
+            color="secondary q-mt-md"
+            label="Take Test"
+            @click="$router.push({ path: '/questions' })"
+            no-caps
+         />
+      </div>
+   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageIndex',
+   data() {
+      return {
+      };
+   },
 };
 </script>
