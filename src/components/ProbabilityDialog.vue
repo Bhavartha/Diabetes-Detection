@@ -36,12 +36,20 @@
          />
          <q-btn flat label="OK" color="primary" v-close-popup @click="close" />
       </q-card-actions>
-      <q-card-actions align="center" v-if="data.msg>69">
+      <q-card-actions align="center" v-if="data.msg>50">
          <q-btn
             flat
             label="Find Jan Aushadhi Kendra"
             color="primary"
             @click="$router.replace({ path: '/jak' })"
+         />
+      </q-card-actions>
+      <q-card-actions align="center" v-if="data.msg>50">
+         <q-btn
+            flat
+            label="Show Diet plan"
+            color="primary"
+            @click="$router.replace({ path: '/diet' })"
          />
       </q-card-actions>
    </q-card>

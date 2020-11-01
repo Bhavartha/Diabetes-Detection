@@ -21,6 +21,9 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-geolocation": {}
-    }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
