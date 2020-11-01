@@ -1,86 +1,161 @@
 <template>
    <q-page class="flex justify-center">
-      <div class="q-px-lg q-pb-md" id="diet">
-         <q-timeline color="primary">
-            <!-- Breakfast -->
-            <q-timeline-entry heading body="Breakfast" tag="h4" />
+      <div class="q-pa-md" style="width: 500px" id="diet">
+         <q-list bordered class="rounded-borders">
+            <q-expansion-item
+               expand-separator
+               icon="wb_sunny"
+               label="Morning"
+               caption="Morning Meal"
+               default-opened
+            >
+               <q-expansion-item
+                  :header-inset-level="1"
+                  :content-inset-level="1"
+                  expand-separator
+                  icon="free_breakfast"
+                  label="Breakfast"
+               >
+                  <q-card>
+                     <q-card-section>
+                        <ul>
+                           <li>A cup of Tea/ Coffee/ Buttermilk/ Curd.</li>
+                           <li>A bowl of oats porridge and a cucumber.</li>
+                           <li>
+                              A bowl of muesli with milk and a cucumber or
+                              tomato.
+                           </li>
+                           <li>
+                              Wheat flakes with milk and 1 cucumber or tomato.
+                           </li>
+                           <li>
+                              Vegetable-moong chilla made with at least 2-3
+                              veggies
+                           </li>
+                           <li>A bowl of vegetable daliya upma</li>
+                        </ul>
+                     </q-card-section>
+                  </q-card>
+               </q-expansion-item>
 
-            <template v-for="i in breakfast">
-               <q-timeline-entry :title="i" :key="i" />
-            </template>
+               <q-expansion-item
+                  :header-inset-level="1"
+                  :content-inset-level="1"
+                  expand-separator
+                  icon="fastfood"
+                  label="Mid Morning"
+               >
+                  <q-card>
+                     <q-card-section>
+                        <ul>
+                           <li>
+                              A cup of green tea with a handful of roasted
+                              channa.
+                           </li>
+                           <li>
+                              One whole fruit (apple/ pear/ orange/ 2-3 moon
+                              slices of papaya/ guava).
+                           </li>
+                        </ul>
+                     </q-card-section>
+                  </q-card>
+               </q-expansion-item>
 
-            <!-- Mid Morning -->
-            <q-timeline-entry heading body="Mid-Morning" tag="h4" />
+               <q-expansion-item
+                  :header-inset-level="1"
+                  :content-inset-level="1"
+                  expand-separator
+                  icon="local_dining"
+                  label="Lunch"
+               >
+                  <q-card>
+                     <q-card-section>
+                        <ul>
+                           <li>
+                              1 bowl of salad + 2 chapatis with 1 big bowl of
+                              sabzi + 1 bowl of dal/ sprouts/ curd/ buttermilk/
+                              2-3 pieces of chicken/ fish.
+                           </li>
+                           <li>
+                              1 big bowl of vegetable daliya khichdi with curd.
+                           </li>
+                           <li>
+                              1 bowl of salad / 2 cucumbers/ 2 tomatoes + half a
+                              bowl of brown rice + 1 big bowl of sabzi + 1 bowl
+                              of dal/ sprouts / curd/ buttermilk/ 2-3 pieces of
+                              chicken/ fish.
+                           </li>
+                        </ul>
+                     </q-card-section>
+                  </q-card>
+               </q-expansion-item>
+            </q-expansion-item>
 
-            <template v-for="i in midMorning">
-               <q-timeline-entry :title="i" :key="i" />
-            </template>
-            <!-- Lunch -->
-            <q-timeline-entry heading body="Lunch" tag="h4" />
+            <!-- Evening -->
+            <q-expansion-item
+               :content-inset-level="0.5"
+               expand-separator
+               icon="brightness_6"
+               label="Evening"
+               caption="Evening Snacks"
+               default-opened
+            >
+               <q-card>
+                  <q-card-section>
+                     <ul>
+                        <li>
+                           1 whole fruit (apple/ pear/ orange/ 2-3 moon slides
+                           of papaya/ guava).
+                        </li>
+                        <li>1 fist chana (boiled or roasted).</li>
+                        <li>
+                           Sukha bhel (cucumber, tomato, green peas, onion,
+                           coriander).
+                        </li>
+                        <li>Khakra</li>
+                        <li>Sandwich (avoid butter, cheese and mayonnaise).</li>
+                     </ul>
+                  </q-card-section>
+               </q-card>
+            </q-expansion-item>
+            <!-- Evening end -->
 
-            <template v-for="i in lunch">
-               <q-timeline-entry :title="i" :key="i" />
-            </template>
-            <!-- Evening Snacks -->
-            <q-timeline-entry heading body="Evening Snacks" tag="h4" />
-
-            <template v-for="i in evening">
-               <q-timeline-entry :title="i" :key="i" />
-            </template>
-            <!-- Dinner -->
-            <q-timeline-entry heading body="Dinner" tag="h4" />
-
-            <template v-for="i in dinner">
-               <q-timeline-entry :title="i" :key="i" />
-            </template>
-         </q-timeline>
+            <!-- Night -->
+            <q-expansion-item
+               :content-inset-level="0.5"
+               expand-separator
+               icon="nights_stay"
+               label="Night"
+               caption="Dinner Meal"
+               default-opened
+            >
+               <q-card>
+                  <q-card-section>
+                     <ul>
+                        <li>
+                           1 bowl of salad/ 2 cucumbers/ 2 tomatoes + 2 chapatis
+                           with 1 big bowl sabzi + 1 bowl of dal/ sprouts/ curd/
+                           buttermilk/ 2-3 pieces of chicken/ fish.
+                        </li>
+                        <li>
+                           1 big bowl of vegetable daliya khichdi with curd.
+                        </li>
+                        <li>
+                           1 bowl of salad/ 2 cucumbers / 2 tomatoes + 1
+                           multigrain chapati or rotla + 1 bowl of dal/sprouts
+                           /curd /buttermilk /2-3 pieces of chicken/ fish.
+                        </li>
+                     </ul>
+                  </q-card-section>
+               </q-card>
+            </q-expansion-item>
+            <!-- Night end -->
+         </q-list>
       </div>
    </q-page>
 </template>
-
-<script>
-export default {
-   data() {
-      return {
-         breakfast: [
-            "A cup of Tea/ Coffee/ Buttermilk/ Curd.",
-            "A bowl of oats porridge and a cucumber.",
-            "A bowl of muesli with milk and a cucumber or tomato",
-            "Wheat flakes with milk and 1 cucumber or tomato",
-            "Vegetable-moong chilla made with at least 2-3 veggies",
-            "A bowl of vegetable daliya upma",
-            "2 slices of whole wheat bread + egg white omelette with lots of veggies",
-         ],
-         midMorning: [
-            "A cup of green tea with a handful of roasted channa.",
-            "One whole fruit (apple/ pear/ orange/ 2-3 moon slices of papaya/ guava).",
-         ],
-         lunch: [
-            "1 bowl of salad + 2 chapatis with 1 big bowl of sabzi + 1 bowl of dal/ sprouts/ curd/ buttermilk/ 2-3 pieces of chicken/ fish.",
-            "1 big bowl of vegetable daliya khichdi with curd.",
-            "1 bowl of salad / 2 cucumbers/ 2 tomatoes + half a bowl of brown rice + 1 big bowl of sabzi + 1 bowl of dal/ sprouts / curd/ buttermilk/ 2-3 pieces of chicken/ fish.",
-         ],
-         evening: [
-            "1 whole fruit (apple/ pear/ orange/ 2-3 moon slides of papaya/ guava).",
-            "1 fist chana (boiled or roasted).",
-            "Sukha bhel (cucumber, tomato, green peas, onion, coriander).",
-            "Khakra.",
-            "Buttermilk (without salt or sugar).",
-            "Sandwich (avoid butter, cheese and mayonnaise).",
-         ],
-         dinner: [
-            "1 bowl of salad/ 2 cucumbers/ 2 tomatoes + 2 chapatis with 1 big bowl sabzi + 1 bowl of dal/ sprouts/ curd/ buttermilk/ 2-3 pieces of chicken/ fish.",
-            "1 big bowl of vegetable daliya khichdi with curd.",
-            "1 bowl of salad/ 2 cucumbers / 2 tomatoes + 1 multigrain chapati or rotla + 1 bowl of dal/sprouts /curd /buttermilk /2-3 pieces of chicken/ fish.",
-         ],
-      };
-   },
-};
-</script>
-
 <style lang="scss" scoped>
 #diet {
-   max-width: 800px;
-   margin-top: 50px;
+   margin-top: 30px;
 }
 </style>

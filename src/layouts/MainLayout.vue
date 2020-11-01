@@ -53,7 +53,7 @@ const menuList = [
       link: "/",
    },
    {
-      icon: "question_answer",
+      icon: "mode_comment",
       label: "Basic Test",
       link: "/questions",
    },
@@ -63,9 +63,19 @@ const menuList = [
       link: "/advancedTest",
    },
    {
+      icon: "healing",
+      label: "JanAushadi Kendra",
+      link: "/jak",
+   },
+   {
       icon: "info",
       label: "Diet",
       link: "/diet",
+   },
+   {
+      icon: "flaky",
+      label: "Do's and Donts",
+      link: "/dos",
    },
 ];
 
