@@ -28,7 +28,7 @@ App that shows probability of a person having diabetes based on different parame
 
 [Website](https://diabetes-detection.netlify.app/)
 
-[Download for Android](https://a4.files.diawi.com/app-file/SIgwHWmuQAAX8HM6eZfW.apk)
+[Download for Android](https://srv-store3.gofile.io/download/Mx5WKS/diabetes_detection.apk)
 
 
 
